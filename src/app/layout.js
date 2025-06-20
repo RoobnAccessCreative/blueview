@@ -1,5 +1,7 @@
 import { Fascinate, Fredoka } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Nabvar";
+import Footer from "@/components/Footer";
 
 const fascinate = Fascinate({
   variable: "--font-t",
@@ -27,9 +29,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-bg text-txt font-b ${fascinate.variable} ${fredoka.variable}`}
+        className={`antialiased bg-bg text-txt font-b flex flex-col items-center justify-between ${fascinate.variable} ${fredoka.variable}`}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
