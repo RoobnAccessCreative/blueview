@@ -14,7 +14,7 @@ export default function Navbar() {
           className="rounded-2xl"
         />
       </Link>
-      <div className="flex items-center justify-evenly gap-16">
+      <div className="flex items-center justify-evenly gap-8 mr-8">
         <NavItem path={"/"} name={"Posts"} />
         <NavItem path={"/about"} name={"About"} />
         {/* ... */}

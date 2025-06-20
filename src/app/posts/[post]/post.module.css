@@ -1,0 +1,15 @@
+.post-image {
+  box-shadow: 0px 4px 50px rgba(68, 101, 207, 0.75);
+  height: 60dvh;
+  width: auto;
+}
+
+@media (prefers-color-scheme: light) {
+  .post-image {
+    box-shadow: 4px 4px 50px rgba(48, 80, 187, 0.25);
+  }
+}
+
+.bio {
+  width: 480px;
+}
