@@ -1,8 +1,12 @@
+import Posts from "@/components/Posts";
+
 export default function HomePage() {
   return (
-    <>
-      <nav>this is navigation</nav>
-      <main>this is mahogany!</main>
-    </>
+    <main>
+      <div>
+        <h1>important text and slogan</h1>
+        <Posts />
+      </div>
+    </main>
   );
 }
