@@ -3,7 +3,7 @@
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
 
-  filter: drop-shadow(4px 4px 0.5px var(--background));
+  /* filter: drop-shadow(4px 4px 0.5px var(--background)); */
 
   &:hover {
     text-decoration: 0.25rem underline;
@@ -13,4 +13,5 @@
 
 .active {
   color: midnightblue;
+  transform: translateY(-10%) scale(1.4);
 }
