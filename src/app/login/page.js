@@ -2,6 +2,9 @@ import Link from "next/link";
 import UserCreds from "@/components/UserCreds";
 import bcrypt from "bcrypt";
 import { db } from "@/utils/database";
+import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export default function LoginPage() {
   const verifyInputs = async (formData) => {
@@ -15,11 +18,22 @@ export default function LoginPage() {
       [data.username]
     );
     const userData = user.rows[0];
-    console.log(userData);
     if (userData) {
-      (await bcrypt.compare(data.password, userData.password))
-        ? console.log("passed")
-        : console.log("failed");
+      if (await bcrypt.compare(data.password, userData.password)) {
+        const cookieJar = await cookies();
+        cookieJar.set({
+          name: "loggedIn",
+          value: true,
+          path: "/",
+          secure: true,
+        });
+        revalidatePath("/");
+        redirect("/");
+      } else {
+        console.error("Password invalid");
+      }
+    } else {
+      console.error("Username invalid");
     }
   };
 
