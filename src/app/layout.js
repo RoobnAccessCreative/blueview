@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-bg text-txt font-b flex flex-col items-center justify-between ${fascinate.variable} ${fredoka.variable}`}
+        className={`antialiased bg-bg text-txt font-b flex flex-col items-center justify-between h-dvh ${fascinate.variable} ${fredoka.variable}`}
       >
         <Navbar />
         {children}
