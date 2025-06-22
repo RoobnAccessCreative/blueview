@@ -38,7 +38,7 @@ export default async function PostPage({ params }) {
   };
 
   return (
-    <main>
+    <main className="h-3/4">
       <h2>{data.title}</h2>
       <div className="flex flex-wrap w-full">
         <span>
