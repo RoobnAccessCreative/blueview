@@ -16,15 +16,16 @@ export default async function PostPage({ params }) {
   // get comments
   const query = await db.query(
     "SELECT bv_comments.id, bv_comments.message, bv_users.username FROM bv_comments \
-    JOIN bv_users ON bv_comments.user_id=bv_users.id WHERE bv_comments.post_id = $1",
+    JOIN bv_users ON bv_comments.user_id=bv_users.id WHERE bv_comments.post_id = $1 ORDER BY bv_comments.id DESC LIMIT 30",
     [post]
   );
-  const comments = res.rows;
+  const comments = query.rows;
 
-  const handleForm = (formData) => {
+  const handleForm = async (formData) => {
+    "use server";
     const toInsert = {
       message: formData.get("comm"),
-      user: userID || 1,
+      user: 1,
       post: post,
     };
     const res = db.query(
@@ -50,10 +51,12 @@ export default async function PostPage({ params }) {
           />
           <p>{data.bio}</p>
         </span>
+
         <span>
           <form action={handleForm}>
             <label htmlFor="comm">Leave a Comment</label>
             <textarea name="comm" id="comm" />
+            <button type="submit">Post</button>
           </form>
           <ul>
             {comments.map((c) => (

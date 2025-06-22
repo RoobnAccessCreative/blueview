@@ -2,16 +2,20 @@
 import navStyles from "./css/Navbar.module.css";
 import Link from "next/link";
 
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 export default function NavItem({ path, name }) {
-  let isPath = usePathname();
+  const isPath = usePathname();
+  const params = useParams();
+
   return (
     <>
       <Link href={path}>
         <h3
           className={`${navStyles["nav-item"]} ${
-            isPath === path ? navStyles.active : ""
+            isPath === path || (params?.post && name === "Posts")
+              ? navStyles.active
+              : ""
           }`}
         >
           {name}

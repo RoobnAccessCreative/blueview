@@ -12,7 +12,7 @@ export default async function Posts() {
         <Link href={`/posts/${p.id}`} key={p.id}>
           <div
             className={
-              "flex items-center gap-4 min-w-[30dvw] bg-pri p-4 pl-6 pr-6 rounded-full"
+              "flex items-center gap-4 min-w-[30dvw] bg-pri/75 p-4 pl-6 pr-6 rounded-full"
             }
           >
             <Image
@@ -20,6 +20,7 @@ export default async function Posts() {
               width={50}
               height={50}
               className="rounded-full"
+              alt=""
             />
             <h2 className="text-bg text-xl font-medium">{p.title}</h2>
           </div>

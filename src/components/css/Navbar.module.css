@@ -7,11 +7,14 @@
 
   &:hover {
     text-decoration: 0.25rem underline;
-    text-underline-offset: 0.5rem;
+    text-underline-offset: 0.75rem;
   }
 }
 
 .active {
   color: midnightblue;
   transform: translateY(-10%) scale(1.4);
+  &:hover {
+    text-underline-offset: 0.5rem;
+  }
 }
